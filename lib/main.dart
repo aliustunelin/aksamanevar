@@ -1,3 +1,4 @@
+import 'package:aksama_ne_var/aramaYemekListesi.dart';
 import 'package:aksama_ne_var/genelYemekListe.dart';
 import 'package:aksama_ne_var/yemekList.dart';
 import 'package:flutter/material.dart';
@@ -12,13 +13,17 @@ void main() async {
       await path_provider.getApplicationDocumentsDirectory();
   await Hive.initFlutter(applicatonDocumentDir.path);
   Hive.registerAdapter(YemekDBAdapter());
+
   await Hive.openBox<YemekDB>('yemekBox');
   //herseferinde aynı şeyleri migrate etmesin
   await Hive.box<YemekDB>("yemekBox").clear();
+
   for (var i = 0; i < yemekler.length; i++) {
     Hive.box<YemekDB>("yemekBox").add(YemekDB(
       baslik: yemekler[i]["baslik"],
+      malzemeler: yemekler[i]["malzemeler"],
       metin: yemekler[i]["metin"],
+      resimLink: yemekler[i]["resimLink"],
     ));
   }
   runApp(MyApp());
@@ -35,7 +40,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: GenelYemekListesi(),
+      home: AramaYemekListesi(),
     );
   }
 }

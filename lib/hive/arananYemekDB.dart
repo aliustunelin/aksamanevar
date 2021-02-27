@@ -2,10 +2,10 @@
 
 import 'package:hive/hive.dart';
 
-part 'yemekDB.g.dart';
+part 'arananYemekDB.g.dart';
 
 @HiveType(typeId: 0)
-class YemekDB {
+class ArananYemekDB {
   @HiveField(0)
   String baslik;
   @HiveField(1)
@@ -19,5 +19,5 @@ class YemekDB {
   // @HiveField(1)
   // bool checked;
 
-  YemekDB({this.baslik, this.malzemeler, this.metin, this.resimLink});
+  ArananYemekDB({this.baslik, this.malzemeler, this.metin, this.resimLink});
 }

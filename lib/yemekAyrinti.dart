@@ -26,7 +26,22 @@ class _YemekAyrintiState extends State<YemekAyrinti> {
                     Hive.box<YemekDB>("yemekBox").getAt(widget.index).baslik),
               ))),
             ),
-            Divider(height: MediaQuery.of(context).size.width / 4),
+            Divider(height: MediaQuery.of(context).size.width / 24),
+            Image.network(
+                Hive.box<YemekDB>("yemekBox").getAt(widget.index).resimLink),
+            Divider(height: MediaQuery.of(context).size.width / 24),
+            Container(
+                child: Center(
+                    child: Card(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(Hive.box<YemekDB>("yemekBox")
+                    .getAt(widget.index)
+                    .malzemeler
+                    .toString()),
+              ),
+            ))),
+            Divider(height: MediaQuery.of(context).size.width / 24),
             Container(
               child: Center(
                   child: Card(
