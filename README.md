@@ -1,5 +1,5 @@
 # aksama_ne_var
-
+master branch kullanımda, main kullanım dışı
 A new Flutter project.
 
 ## Getting Started
